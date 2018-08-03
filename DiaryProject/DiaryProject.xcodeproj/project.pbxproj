@@ -16,7 +16,18 @@
 		9D86353E211425B90047043C /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D86353B211425B90047043C /* background@2x.jpg */; };
 		9D86353F211425B90047043C /* background@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D86353C211425B90047043C /* background@3x.jpg */; };
 		9D86354621142D060047043C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354521142D060047043C /* Entry.swift */; };
+		9D86354E21142F650047043C /* DiaryProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354D21142F650047043C /* DiaryProjectTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9D86355021142F650047043C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D09829C2112E35C000F3946 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D0982A32112E35C000F3946;
+			remoteInfo = DiaryProject;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9D0982A42112E35C000F3946 /* DiaryProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaryProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,10 +41,20 @@
 		9D86353B211425B90047043C /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "background@2x.jpg"; path = "../../../../../Downloads/background/background@2x.jpg"; sourceTree = "<group>"; };
 		9D86353C211425B90047043C /* background@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "background@3x.jpg"; path = "../../../../../Downloads/background/background@3x.jpg"; sourceTree = "<group>"; };
 		9D86354521142D060047043C /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		9D86354B21142F650047043C /* DiaryProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiaryProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D86354D21142F650047043C /* DiaryProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryProjectTests.swift; sourceTree = "<group>"; };
+		9D86354F21142F650047043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9D0982A12112E35C000F3946 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D86354821142F650047043C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				9D0982A62112E35C000F3946 /* DiaryProject */,
+				9D86354C21142F650047043C /* DiaryProjectTests */,
 				9D0982A52112E35C000F3946 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				9D0982A42112E35C000F3946 /* DiaryProject.app */,
+				9D86354B21142F650047043C /* DiaryProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +147,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9D86354C21142F650047043C /* DiaryProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				9D86354D21142F650047043C /* DiaryProjectTests.swift */,
+				9D86354F21142F650047043C /* Info.plist */,
+			);
+			path = DiaryProjectTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +176,24 @@
 			productReference = 9D0982A42112E35C000F3946 /* DiaryProject.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9D86354A21142F650047043C /* DiaryProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D86355221142F650047043C /* Build configuration list for PBXNativeTarget "DiaryProjectTests" */;
+			buildPhases = (
+				9D86354721142F650047043C /* Sources */,
+				9D86354821142F650047043C /* Frameworks */,
+				9D86354921142F650047043C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D86355121142F650047043C /* PBXTargetDependency */,
+			);
+			name = DiaryProjectTests;
+			productName = DiaryProjectTests;
+			productReference = 9D86354B21142F650047043C /* DiaryProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -156,6 +206,10 @@
 				TargetAttributes = {
 					9D0982A32112E35C000F3946 = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					9D86354A21142F650047043C = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 9D0982A32112E35C000F3946;
 					};
 				};
 			};
@@ -173,6 +227,7 @@
 			projectRoot = "";
 			targets = (
 				9D0982A32112E35C000F3946 /* DiaryProject */,
+				9D86354A21142F650047043C /* DiaryProjectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -191,6 +246,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9D86354921142F650047043C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -204,7 +266,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9D86354721142F650047043C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D86354E21142F650047043C /* DiaryProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9D86355121142F650047043C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D0982A32112E35C000F3946 /* DiaryProject */;
+			targetProxy = 9D86355021142F650047043C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9D0982AB2112E35C000F3946 /* Main.storyboard */ = {
@@ -374,6 +452,44 @@
 			};
 			name = Release;
 		};
+		9D86355321142F650047043C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DiaryProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.asvals.DiaryProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiaryProject.app/DiaryProject";
+			};
+			name = Debug;
+		};
+		9D86355421142F650047043C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DiaryProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.asvals.DiaryProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiaryProject.app/DiaryProject";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -391,6 +507,15 @@
 			buildConfigurations = (
 				9D0982B72112E35D000F3946 /* Debug */,
 				9D0982B82112E35D000F3946 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D86355221142F650047043C /* Build configuration list for PBXNativeTarget "DiaryProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D86355321142F650047043C /* Debug */,
+				9D86355421142F650047043C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
