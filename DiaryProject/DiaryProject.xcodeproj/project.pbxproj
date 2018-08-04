@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B89AD943490DC69574CA7B0 /* Pods_DiaryProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE15647CBB59B9ACA5B85F7 /* Pods_DiaryProject.framework */; };
+		8013B64A3BEB67C831E8A71A /* Pods_DiaryProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9386D7B5886DFB040BBB159 /* Pods_DiaryProjectTests.framework */; };
 		9D0982A82112E35C000F3946 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0982A72112E35C000F3946 /* AppDelegate.swift */; };
 		9D0982AA2112E35C000F3946 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0982A92112E35C000F3946 /* ViewController.swift */; };
 		9D0982AD2112E35C000F3946 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982AB2112E35C000F3946 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2305B39937B777DCD2F8C092 /* Pods-DiaryProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiaryProjectTests/Pods-DiaryProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		5EB52B07EFBE32F189C888AB /* Pods-DiaryProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiaryProject/Pods-DiaryProject.release.xcconfig"; sourceTree = "<group>"; };
 		9D0982A42112E35C000F3946 /* DiaryProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaryProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0982A72112E35C000F3946 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D0982A92112E35C000F3946 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +52,10 @@
 		9D86354F21142F650047043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DA6D07021153A15000D96E0 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		9DA6D072211547F5000D96E0 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		B90935E4D04AF4DD245DC9DD /* Pods-DiaryProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiaryProjectTests/Pods-DiaryProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B9386D7B5886DFB040BBB159 /* Pods_DiaryProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiaryProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCE15647CBB59B9ACA5B85F7 /* Pods_DiaryProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiaryProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD62264BA115AA4FE417F99C /* Pods-DiaryProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiaryProject/Pods-DiaryProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B89AD943490DC69574CA7B0 /* Pods_DiaryProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,18 +71,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8013B64A3BEB67C831E8A71A /* Pods_DiaryProjectTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04DBDC7A3FB6174C7F4A4EB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCE15647CBB59B9ACA5B85F7 /* Pods_DiaryProject.framework */,
+				B9386D7B5886DFB040BBB159 /* Pods_DiaryProjectTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45E0748BE616C57F50B72AAC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD62264BA115AA4FE417F99C /* Pods-DiaryProject.debug.xcconfig */,
+				5EB52B07EFBE32F189C888AB /* Pods-DiaryProject.release.xcconfig */,
+				B90935E4D04AF4DD245DC9DD /* Pods-DiaryProjectTests.debug.xcconfig */,
+				2305B39937B777DCD2F8C092 /* Pods-DiaryProjectTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9D09829B2112E35C000F3946 = {
 			isa = PBXGroup;
 			children = (
 				9D0982A62112E35C000F3946 /* DiaryProject */,
 				9D86354C21142F650047043C /* DiaryProjectTests */,
 				9D0982A52112E35C000F3946 /* Products */,
+				45E0748BE616C57F50B72AAC /* Pods */,
+				04DBDC7A3FB6174C7F4A4EB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +201,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D0982B62112E35D000F3946 /* Build configuration list for PBXNativeTarget "DiaryProject" */;
 			buildPhases = (
+				64DFCF5DE54321E0EA870C43 /* [CP] Check Pods Manifest.lock */,
 				9D0982A02112E35C000F3946 /* Sources */,
 				9D0982A12112E35C000F3946 /* Frameworks */,
 				9D0982A22112E35C000F3946 /* Resources */,
@@ -186,9 +219,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D86355221142F650047043C /* Build configuration list for PBXNativeTarget "DiaryProjectTests" */;
 			buildPhases = (
+				7F065E06C2405E68B5521939 /* [CP] Check Pods Manifest.lock */,
 				9D86354721142F650047043C /* Sources */,
 				9D86354821142F650047043C /* Frameworks */,
 				9D86354921142F650047043C /* Resources */,
+				98A968A44119A90AFCCD4F26 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +295,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64DFCF5DE54321E0EA870C43 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DiaryProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F065E06C2405E68B5521939 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DiaryProjectTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98A968A44119A90AFCCD4F26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DiaryProjectTests/Pods-DiaryProjectTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiaryProjectTests/Pods-DiaryProjectTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9D0982A02112E35C000F3946 /* Sources */ = {
@@ -428,6 +520,7 @@
 		};
 		9D0982B72112E35D000F3946 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD62264BA115AA4FE417F99C /* Pods-DiaryProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -445,6 +538,7 @@
 		};
 		9D0982B82112E35D000F3946 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EB52B07EFBE32F189C888AB /* Pods-DiaryProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -462,6 +556,7 @@
 		};
 		9D86355321142F650047043C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B90935E4D04AF4DD245DC9DD /* Pods-DiaryProjectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -481,6 +576,7 @@
 		};
 		9D86355421142F650047043C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2305B39937B777DCD2F8C092 /* Pods-DiaryProjectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
