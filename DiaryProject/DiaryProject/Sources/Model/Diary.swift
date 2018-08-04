@@ -16,7 +16,7 @@ protocol Journal {
 }
 
 class InMemoryJournal: Journal {
-    private var entries: [Int: Entry] = [:]
+    private var entries: [Int: Entry]
     
     init(entries: [Entry] = []) {
         var result: [Int: Entry] = [:]
@@ -37,7 +37,7 @@ class InMemoryJournal: Journal {
     }
     
     func remove(_ entry: Entry) {
-        
+        entries[entry.id] = nil
     }
     
     func entry(with id: Int) -> Entry? {
@@ -45,6 +45,11 @@ class InMemoryJournal: Journal {
     }
     
     func recentEntries(max: Int) -> [Entry] {
-        return []
+        let result = entries
+            .values
+            .sorted { $0.createdAt > $1.createdAt  }
+            .prefix(max)
+        
+        return Array(result)
     }
 }
