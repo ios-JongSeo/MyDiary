@@ -17,6 +17,8 @@
 		9D86353F211425B90047043C /* background@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D86353C211425B90047043C /* background@3x.jpg */; };
 		9D86354621142D060047043C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354521142D060047043C /* Entry.swift */; };
 		9D86354E21142F650047043C /* DiaryProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354D21142F650047043C /* DiaryProjectTests.swift */; };
+		9DA6D07121153A15000D96E0 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D07021153A15000D96E0 /* Diary.swift */; };
+		9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D072211547F5000D96E0 /* Identifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		9D86354B21142F650047043C /* DiaryProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiaryProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D86354D21142F650047043C /* DiaryProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryProjectTests.swift; sourceTree = "<group>"; };
 		9D86354F21142F650047043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DA6D07021153A15000D96E0 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		9DA6D072211547F5000D96E0 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				9D0982A72112E35C000F3946 /* AppDelegate.swift */,
+				9DA6D072211547F5000D96E0 /* Identifiable.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				9D86354521142D060047043C /* Entry.swift */,
+				9DA6D07021153A15000D96E0 /* Diary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 				9D86354621142D060047043C /* Entry.swift in Sources */,
 				9D0982AA2112E35C000F3946 /* ViewController.swift in Sources */,
 				9D0982A82112E35C000F3946 /* AppDelegate.swift in Sources */,
+				9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */,
+				9DA6D07121153A15000D96E0 /* Diary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

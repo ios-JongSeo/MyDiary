@@ -7,29 +7,61 @@
 //
 
 import XCTest
+@testable import DiaryProject
 
 class DiaryProjectTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    // ....
+    func testEditEntryText() {
+        // Setup
+        let entry = Entry(id: 0, createdAt: Date(), text: "첫 번째 일기") // Run
+        
+        // Run
+        entry.text = "첫 번째 테스트"
+        
+        // Verify
+        XCTAssertEqual(entry.text, "첫 번째 테스트")
+        
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testAddEntryToJournal() {
+        // Setup
+        let journal = InMemoryJournal()
+        let newEntry = Entry(id: 1, createdAt: Date(), text: "일기")
+
+        // Run
+        journal.add(newEntry)
+
+        // Verify
+        let entryInJournal: Entry? = journal.entry(with: 1)
+        XCTAssertEqual(entryInJournal, .some(newEntry))
+        XCTAssertTrue(entryInJournal === newEntry)
+        XCTAssertTrue(entryInJournal?.isIdentical(to: newEntry) == true)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGetEntryWithId() {
+        // Setup
+        let oldEntry = Entry(id: 1, createdAt: Date(), text: "일기")
+        let journal = InMemoryJournal(entries: [oldEntry])
+        // Run
+        let entry = journal.entry(with: 1)
+        // Verify
+        XCTAssertEqual(entry, .some(oldEntry))
+        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testUpdateEntry(){
+        //Setup
+        let oldEntry = Entry(id: 1, createdAt: Date(), text: "일기")
+        let journal = InMemoryJournal(entries: [oldEntry])
+        
+        //Run
+        oldEntry.text = "일기 내용을 수정 했습니다."
+        journal.update(oldEntry)
+        
+        //verify
+        let entry = journal.entry(with: 1)
+        XCTAssertEqual(entry, .some(oldEntry))
+        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
+        XCTAssertEqual(entry?.text, .some("일기 내용을 수정 했습니다."))
     }
-    
 }
