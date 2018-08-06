@@ -205,6 +205,7 @@
 				9D0982A02112E35C000F3946 /* Sources */,
 				9D0982A12112E35C000F3946 /* Frameworks */,
 				9D0982A22112E35C000F3946 /* Resources */,
+				1F81E62E784E673D5659CC85 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,6 +298,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1F81E62E784E673D5659CC85 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DiaryProject/Pods-DiaryProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiaryProject/Pods-DiaryProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		64DFCF5DE54321E0EA870C43 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
