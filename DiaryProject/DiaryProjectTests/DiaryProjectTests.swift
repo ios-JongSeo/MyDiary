@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Nimble
 @testable import DiaryProject
 
 extension Entry {
