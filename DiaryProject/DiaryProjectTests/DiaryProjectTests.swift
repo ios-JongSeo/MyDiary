@@ -18,7 +18,7 @@ extension Entry {
 }
 
 class DiaryProjectTests: XCTestCase {
-    var newEntry: Enrty!
+    var newEntry: Entry!
     
     func testEditEntryText() {
         // Setup
