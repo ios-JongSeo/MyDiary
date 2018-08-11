@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SnapKit
+//import SnapKit
 
 extension DateFormatter{
     static var entryDateFormatter:DateFormatter = {
