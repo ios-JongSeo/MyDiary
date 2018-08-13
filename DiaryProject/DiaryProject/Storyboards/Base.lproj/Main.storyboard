@@ -30,9 +30,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFY-4x-oTO">
                                         <rect key="frame" x="337" y="66.5" width="30" height="30"/>
                                         <state key="normal" title="저장"/>
-                                        <connections>
-                                            <action selector="saveEntry:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rE7-B8-dh9"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,6 +63,7 @@
                         <viewLayoutGuide key="safeArea" id="pCC-YL-aC7"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="xFY-4x-oTO" id="ZET-1B-Aai"/>
                         <outlet property="dateLabel" destination="DSa-Rl-vAz" id="xmK-hi-6Vx"/>
                         <outlet property="textView" destination="teo-r0-V2w" id="3LV-Xd-BkA"/>
                     </connections>
