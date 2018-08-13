@@ -10,7 +10,7 @@
 		7B89AD943490DC69574CA7B0 /* Pods_DiaryProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE15647CBB59B9ACA5B85F7 /* Pods_DiaryProject.framework */; };
 		8013B64A3BEB67C831E8A71A /* Pods_DiaryProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9386D7B5886DFB040BBB159 /* Pods_DiaryProjectTests.framework */; };
 		9D0982A82112E35C000F3946 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0982A72112E35C000F3946 /* AppDelegate.swift */; };
-		9D0982AA2112E35C000F3946 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0982A92112E35C000F3946 /* ViewController.swift */; };
+		9D0982AA2112E35C000F3946 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0982A92112E35C000F3946 /* EntryViewController.swift */; };
 		9D0982AD2112E35C000F3946 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982AB2112E35C000F3946 /* Main.storyboard */; };
 		9D0982AF2112E35D000F3946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982AE2112E35D000F3946 /* Assets.xcassets */; };
 		9D0982B22112E35D000F3946 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982B02112E35D000F3946 /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 		5EB52B07EFBE32F189C888AB /* Pods-DiaryProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiaryProject/Pods-DiaryProject.release.xcconfig"; sourceTree = "<group>"; };
 		9D0982A42112E35C000F3946 /* DiaryProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaryProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0982A72112E35C000F3946 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9D0982A92112E35C000F3946 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D0982A92112E35C000F3946 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		9D0982AC2112E35C000F3946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D0982AE2112E35D000F3946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D0982B12112E35D000F3946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		9D863543211426400047043C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9D0982A92112E35C000F3946 /* ViewController.swift */,
+				9D0982A92112E35C000F3946 /* EntryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D86354621142D060047043C /* Entry.swift in Sources */,
-				9D0982AA2112E35C000F3946 /* ViewController.swift in Sources */,
+				9D0982AA2112E35C000F3946 /* EntryViewController.swift in Sources */,
 				9D0982A82112E35C000F3946 /* AppDelegate.swift in Sources */,
 				9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */,
 				9DA6D07121153A15000D96E0 /* Diary.swift in Sources */,
