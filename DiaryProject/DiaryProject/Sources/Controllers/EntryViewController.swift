@@ -153,12 +153,14 @@ class EntryViewController: UIViewController {
             textView.becomeFirstResponder()
             
             button.setTitle("저장", for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
         }else{
             textView.isEditable = false // 저장 후 수정불가
             textView.resignFirstResponder() // 키보드 숨기기
             
             button.setTitle("수정", for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self, action: #selector(editEntry(_:)), for: .touchUpInside)
         }
     }
