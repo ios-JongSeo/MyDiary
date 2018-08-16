@@ -14,6 +14,7 @@
 		9D0982AD2112E35C000F3946 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982AB2112E35C000F3946 /* Main.storyboard */; };
 		9D0982AF2112E35D000F3946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982AE2112E35D000F3946 /* Assets.xcassets */; };
 		9D0982B22112E35D000F3946 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982B02112E35D000F3946 /* LaunchScreen.storyboard */; };
+		9D69214921250DB9009684C4 /* UIKit+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */; };
 		9D86353D211425B90047043C /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D86353A211425B90047043C /* background.jpg */; };
 		9D86353E211425B90047043C /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D86353B211425B90047043C /* background@2x.jpg */; };
 		9D86353F211425B90047043C /* background@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D86353C211425B90047043C /* background@3x.jpg */; };
@@ -43,6 +44,7 @@
 		9D0982AE2112E35D000F3946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D0982B12112E35D000F3946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D0982B32112E35D000F3946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+MyDiary.swift"; sourceTree = "<group>"; };
 		9D86353A211425B90047043C /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = ../../../../../Downloads/background/background.jpg; sourceTree = "<group>"; };
 		9D86353B211425B90047043C /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "background@2x.jpg"; path = "../../../../../Downloads/background/background@2x.jpg"; sourceTree = "<group>"; };
 		9D86353C211425B90047043C /* background@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "background@3x.jpg"; path = "../../../../../Downloads/background/background@3x.jpg"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				9D0982A72112E35C000F3946 /* AppDelegate.swift */,
 				9DA6D072211547F5000D96E0 /* Identifiable.swift */,
+				9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D69214921250DB9009684C4 /* UIKit+MyDiary.swift in Sources */,
 				9D86354621142D060047043C /* Entry.swift in Sources */,
 				9D0982AA2112E35C000F3946 /* EntryViewController.swift in Sources */,
 				9D0982A82112E35C000F3946 /* AppDelegate.swift in Sources */,
