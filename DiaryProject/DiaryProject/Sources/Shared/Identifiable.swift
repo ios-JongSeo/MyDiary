@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Identifiable {
-    var id: Int { get }
+    var id: UUID { get }
 }
 
 extension Identifiable {
@@ -17,3 +17,4 @@ extension Identifiable {
         return id == other.id
     }
 }
+

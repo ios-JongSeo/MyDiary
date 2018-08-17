@@ -2,7 +2,9 @@ platform :ios, '11.0'
 use_frameworks!
 inhibit_all_warnings!
 
-target :DiaryProject do
+target "DiaryProject" do
+	pod 'SnapKit'
+
   target :DiaryProjectTests do
     inherit! :search_paths
     pod 'Nimble', '~> 7.0.0'
