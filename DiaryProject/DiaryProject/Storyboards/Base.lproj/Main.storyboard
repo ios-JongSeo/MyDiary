@@ -18,21 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBg-ac-ESW">
-                                <rect key="frame" x="94" y="306" width="186" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBg-ac-ESW">
+                                <rect key="frame" x="166" y="323.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OBg-ac-ESW" firstAttribute="centerY" secondItem="Jrk-1y-ia3" secondAttribute="centerY" id="nvk-8c-cYc"/>
+                            <constraint firstItem="OBg-ac-ESW" firstAttribute="centerX" secondItem="Jrk-1y-ia3" secondAttribute="centerX" id="t2I-gh-p6Y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5ZS-3E-h3r"/>
                     </view>
                     <navigationItem key="navigationItem" id="KDT-nC-CIZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RuZ-2y-MU5">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="8er-8J-hOf"/>
+                                <segue destination="BYZ-38-t0r" kind="show" id="sFf-XV-JPk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
