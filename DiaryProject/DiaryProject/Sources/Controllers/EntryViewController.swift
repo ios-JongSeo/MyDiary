@@ -9,14 +9,6 @@
 import UIKit
 import SnapKit
 
-extension DateFormatter{
-    static var entryDateFormatter: DateFormatter = { () -> DateFormatter in
-        let df = DateFormatter()
-        df.dateFormat = "yyyy. MM. dd. EEE"
-        return df
-    }()
-}
-
 let code = """
     class EntryViewController: UIViewController {
         @IBOutlet weak var dateLabel: UILabel!
@@ -73,81 +65,71 @@ let code = """
     }
 """
 
+extension DateFormatter{
+    static var entryDateFormatter: DateFormatter = { () -> DateFormatter in
+        let df = DateFormatter()
+        df.dateFormat = "yyyy. MM. dd. EEE"
+        return df
+    }()
+}
+
 class EntryViewController: UIViewController {
     
     let journal: Journal = InMemoryJournal()
     private var editingEntry: Entry?
     
-    var yellowViewHeight: Constraint!
-//    var mainTextViewBottom: Constraint!
-    
-    lazy var yellowView: UIView = {
-       var view = UIView()
-        view.backgroundColor = UIColor.yellow
-        return view
-    }()
-    
-    lazy var datelabel: UILabel = {
-        var label = UILabel()
-        label.text = DateFormatter.entryDateFormatter.string(from: Date())
-        return label
-    }()
-    
-    lazy var saveButton: UIButton = {
-        var button = UIButton()
-        button.setTitle("저장", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        return button
-    }()
-    
-    lazy var mainTextView: UITextView = {
-        var textView = UITextView()
-        textView.text = code
-        return textView
-    }()
+    let headerView: UIView = UIView()
+    let datelabel: UILabel = UILabel()
+    let textView: UITextView = UITextView()
+    let button: UIButton = UIButton(type: .system)
+    var headerViewHeightConstraint: Constraint!
+    var textViewBottomConstraint: Constraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(yellowView)
-        yellowView.snp.makeConstraints { (m) in
-            m.width.equalTo(view)
-            m.height.equalTo(100)
-            m.top.equalTo(view).offset(20)
-            
-            yellowViewHeight = m.height.equalTo(100).constraint
-        }
         
-        yellowView.addSubview(datelabel)
-        datelabel.snp.makeConstraints{ (m) in
-            m.width.equalTo(150)
-            m.height.equalTo(20)
-            m.bottom.equalTo(yellowView).offset(-10)
-            m.left.equalTo(yellowView).offset(10)
-        }
+        addSubviews()
+        layout()
         
-        yellowView.addSubview(saveButton)
-        saveButton.snp.makeConstraints{ (m) in
-            m.width.equalTo(50)
-            m.height.equalTo(20)
-            m.bottom.equalTo(yellowView).offset(-10)
-            m.right.equalTo(yellowView).offset(-10)
-        }
+        headerView.backgroundColor = UIColor.yellow
+        datelabel.text = DateFormatter.entryDateFormatter.string(from: Date())
+        textView.text = code
         
-        datelabel.center.y = saveButton.center.y
-        
-        view.addSubview(mainTextView)
-        mainTextView.snp.makeConstraints { (m) in
-            m.width.equalTo(view)
-            m.height.equalTo(view)
-            m.top.equalTo(yellowView.snp.bottom).offset(5)
-            
-//            mainTextViewBottom = m.bottom.equalToSuperview().constraint
-        }
-        
-        saveButton.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
+        updateSubviews(for: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    private func addSubviews() {
+        headerView.addSubview(datelabel)
+        headerView.addSubview(button)
+        view.addSubview(headerView)
+        view.addSubview(textView)
+    }
+    
+    private func layout() {
+        datelabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(8)
+            $0.bottom.equalToSuperview().inset(8)
+            $0.trailing.lessThanOrEqualTo(button.snp.leading).inset(8)
+        }
+        
+        button.snp.makeConstraints {
+            $0.centerY.equalTo(datelabel)
+            $0.trailing.equalToSuperview().inset(8)
+        }
+        
+        headerView.snp.makeConstraints {
+            $0.leading.top.trailing.equalToSuperview()
+            headerViewHeightConstraint = $0.height.equalTo(100).constraint
+        }
+        
+        textView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            textViewBottomConstraint = $0.bottom.equalToSuperview().constraint
+        }
     }
     
     @objc func handlekeyboardAppearance(_ note: Notification){
@@ -159,20 +141,21 @@ class EntryViewController: UIViewController {
             else{ return }
 
         let isKeyboardWillShow: Bool = note.name == Notification.Name.UIKeyboardWillShow
-//        let keyboardHeight = isKeyboardWillShow
-        _ = isKeyboardWillShow
+        let keyboardHeight = isKeyboardWillShow
             ? keyboardFrame.cgRectValue.height
             : 0
+        let headerHeight = isKeyboardWillShow
+            ? 50
+            : 100
         let animationOption = UIViewAnimationOptions.init(rawValue: curve)
-        let yellowHeight = isKeyboardWillShow ? 100 : 50
 
         UIView.animate(
             withDuration: duration,
             delay: 0.0,
             options: animationOption,
             animations: {
-//                self.mainTextViewBottom.update(offset: -keyboardHeight)
-                self.yellowViewHeight.update(offset: yellowHeight)
+                self.headerViewHeightConstraint.update(offset: headerHeight)
+                self.textViewBottomConstraint.update(offset: -keyboardHeight)
                 self.view.layoutIfNeeded()
         },
             completion: nil
@@ -181,15 +164,15 @@ class EntryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mainTextView.becomeFirstResponder()
+        textView.becomeFirstResponder()
     }
 
     @objc func saveEntry(_ sender: Any){
         if let editing = editingEntry {
-            editing.text = mainTextView.text
+            editing.text = textView.text
             journal.update(editing)
         }else{
-            let entry: Entry = Entry(text: mainTextView.text)
+            let entry: Entry = Entry(text: textView.text)
             journal.add(entry)
             editingEntry = entry
         }
@@ -202,19 +185,19 @@ class EntryViewController: UIViewController {
 
     fileprivate func updateSubviews(for isEditing: Bool) {
         if isEditing{
-            mainTextView.isEditable = true
-            mainTextView.becomeFirstResponder()
+            textView.isEditable = true
+            textView.becomeFirstResponder()
 
-            saveButton.setTitle("저장", for: .normal)
-            saveButton.removeTarget(self, action: nil, for: .touchUpInside)
-            saveButton.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
+            button.setTitle("저장", for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
+            button.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
         }else{
-            mainTextView.isEditable = false // 저장 후 수정불가
-            mainTextView.resignFirstResponder() // 키보드 숨기기
+            textView.isEditable = false // 저장 후 수정불가
+            textView.resignFirstResponder() // 키보드 숨기기
 
-            saveButton.setTitle("수정", for: .normal)
-            saveButton.removeTarget(self, action: nil, for: .touchUpInside)
-            saveButton.addTarget(self, action: #selector(editEntry(_:)), for: .touchUpInside)
+            button.setTitle("수정", for: .normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
+            button.addTarget(self, action: #selector(editEntry(_:)), for: .touchUpInside)
         }
     }
 
