@@ -18,17 +18,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBg-ac-ESW">
-                                <rect key="frame" x="166" y="323.5" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQm-2n-3ip">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryTableViewCell" textLabel="qLw-C4-GBg" detailTextLabel="C7s-jY-t9D" style="IBUITableViewCellStyleSubtitle" id="2ys-Vx-XD3">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ys-Vx-XD3" id="Nbm-f5-vYY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qLw-C4-GBg">
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C7s-jY-t9D">
+                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showEntry" id="HKE-MZ-IDA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OBg-ac-ESW" firstAttribute="centerY" secondItem="Jrk-1y-ia3" secondAttribute="centerY" id="nvk-8c-cYc"/>
-                            <constraint firstItem="OBg-ac-ESW" firstAttribute="centerX" secondItem="Jrk-1y-ia3" secondAttribute="centerX" id="t2I-gh-p6Y"/>
+                            <constraint firstItem="QQm-2n-3ip" firstAttribute="leading" secondItem="5ZS-3E-h3r" secondAttribute="leading" id="QAj-NM-YAt"/>
+                            <constraint firstItem="QQm-2n-3ip" firstAttribute="trailing" secondItem="5ZS-3E-h3r" secondAttribute="trailing" id="QsH-3k-Mlb"/>
+                            <constraint firstItem="QQm-2n-3ip" firstAttribute="top" secondItem="Jrk-1y-ia3" secondAttribute="top" id="dQU-RB-cor"/>
+                            <constraint firstItem="QQm-2n-3ip" firstAttribute="bottom" secondItem="5ZS-3E-h3r" secondAttribute="bottom" id="jRG-v7-TVh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5ZS-3E-h3r"/>
                     </view>
@@ -40,7 +69,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="entryCountLabel" destination="OBg-ac-ESW" id="4Sf-dF-Wh0"/>
+                        <outlet property="tableview" destination="QQm-2n-3ip" id="hVN-gF-xV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQ4-Jb-hAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,4 +133,7 @@
             <point key="canvasLocation" x="-262" y="76"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HKE-MZ-IDA"/>
+    </inferredMetricsTieBreakers>
 </document>
