@@ -5,7 +5,7 @@
 //  Created by 김종서 on 2018. 8. 2..
 //  Copyright © 2018년 김종서. All rights reserved.
 //
-// branch master
+// branch add-navigation-controller
 
 import UIKit
 import SnapKit
@@ -75,21 +75,24 @@ let code = """
 """
 
 class EntryViewController: UIViewController {
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var button: UIBarButtonItem!
     
-    let journal: Journal = InMemoryJournal()
+    var environment: Environment!
+    
+    var journal: EntryRepository { return environment.entryRepository }
     private var editingEntry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textView.text = code
-        dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
+        title = DateFormatter.entryDateFormatter.string(from: Date())
         
-        button.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
+//        button.title = "저장"
+//        button.target = self
+//        button.action = #selector(saveEntry(_:))
         
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -126,7 +129,7 @@ class EntryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        textView.becomeFirstResponder() // 키보드 보이기
+        updateSubviews(for: true)
     }
     
     @objc func saveEntry(_ sender: Any) {
@@ -148,21 +151,32 @@ class EntryViewController: UIViewController {
     }
     
     fileprivate func updateSubviews(for isEditing: Bool) {
-        if isEditing{
-            textView.isEditable = true
-            textView.becomeFirstResponder()
-            
-            button.setTitle("저장", for: .normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self, action: #selector(saveEntry(_:)), for: .touchUpInside)
-        }else{
-            textView.isEditable = false // 저장 후 수정불가
-            textView.resignFirstResponder() // 키보드 숨기기
-            
-            button.setTitle("수정", for: .normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self, action: #selector(editEntry(_:)), for: .touchUpInside)
-        }
+        textView.isEditable = true
+        _ = isEditing
+        ? textView.becomeFirstResponder()
+        : textView.resignFirstResponder()
+        
+        button.image = isEditing ? #imageLiteral(resourceName: "baseline_save_white_24pt") : #imageLiteral(resourceName: "baseline_edit_white_24pt")
+        button.target = self
+        button.action = isEditing
+        ? #selector(saveEntry(_:))
+        : #selector(editEntry(_:))
+        
+//        if isEditing{
+//            textView.isEditable = true
+//            textView.becomeFirstResponder()
+//
+//            button.image = #imageLiteral(resourceName: "baseline_save_white_24pt")
+//            button.target = self
+//            button.action = #selector(saveEntry(_:))
+//        }else{
+//            textView.isEditable = false // 저장 후 수정불가
+//            textView.resignFirstResponder() // 키보드 숨기기
+//
+//            button.image = #imageLiteral(resourceName: "baseline_edit_white_24pt")
+//            button.target = self
+//            button.action = #selector(editEntry(_:))
+//        }
     }
 
 }
