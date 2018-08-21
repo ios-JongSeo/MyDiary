@@ -35,7 +35,7 @@
                     <navigationItem key="navigationItem" id="KDT-nC-CIZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RuZ-2y-MU5">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="sFf-XV-JPk"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="addEntry" id="sFf-XV-JPk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
