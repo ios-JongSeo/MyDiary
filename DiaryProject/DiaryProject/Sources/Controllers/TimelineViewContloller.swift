@@ -20,6 +20,7 @@ class TimelineViewController: UIViewController {
         case "addEntry":
             let entryVC = segue.destination as? EntryViewController
             entryVC?.environment = environment
+            entryVC?.delegate = self
         
         case "showEntry":
             if
@@ -28,6 +29,7 @@ class TimelineViewController: UIViewController {
                 entryVC.environment = environment
                 let entry = entries[selectedIndexPath.row]
                 entryVC.editingEntry = entry
+                entryVC.delegate = self
             }
             
         default:
@@ -64,6 +66,10 @@ extension TimelineViewController: UITableViewDataSource {
         
         return tableViewCell
     }
-    
-    
+}
+
+extension TimelineViewController: EntryViewControllerDelegate {
+    func didRemoveEntry(_ entry: Entry) {
+        navigationController?.popViewController(animated: true)
+    }
 }

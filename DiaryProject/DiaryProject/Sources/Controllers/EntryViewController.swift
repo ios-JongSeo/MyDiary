@@ -18,15 +18,24 @@ extension DateFormatter{
     }()
 }
 
+protocol EntryViewControllerDelegate: class {
+    func didRemoveEntry(_ entry: Entry)
+}
+
 class EntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var button: UIBarButtonItem!
+    @IBOutlet weak var removeButton: UIBarButtonItem!
     
     var environment: Environment!
+    weak var delegate: EntryViewControllerDelegate?
     
     var journal: EntryRepository { return environment.entryRepository }
     var editingEntry: Entry?
+    var hasEntry: Bool {
+        return editingEntry != nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +44,8 @@ class EntryViewController: UIViewController {
         
         textView.text = editingEntry?.text
         title = DateFormatter.entryDateFormatter.string(from: date)
+        
+        updateSubviews(for: hasEntry == false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -70,8 +81,9 @@ class EntryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        updateSubviews(for: true)
+        if hasEntry == false {
+            textView.becomeFirstResponder()
+        }
     }
     
     @objc func saveEntry(_ sender: Any) {
@@ -85,18 +97,47 @@ class EntryViewController: UIViewController {
         }
         
         updateSubviews(for: false)
-
+        textView.resignFirstResponder()
     }
     
     @objc func editEntry(_ sender: Any){
         updateSubviews(for: true)
+        textView.becomeFirstResponder()
+    }
+   
+    @IBAction func removeEntry(_ sender: Any) {
+        guard let entryToRemove = editingEntry else { return }
+        
+        let alertController = UIAlertController(
+            title: "일기를 삭제 하시겠습니까??",
+            message: "이 동작은 되돌릴 수 없습니다.",
+            preferredStyle: .actionSheet
+        )
+        
+        let removeAction: UIAlertAction = UIAlertAction(
+            title: "삭제",
+            style: .destructive) { (_) in
+                self.environment.entryRepository.remove(entryToRemove)
+                self.editingEntry = nil
+        
+                // pop
+                self.delegate?.didRemoveEntry(entryToRemove)
+        }
+        alertController.addAction(removeAction)
+        
+        let cancelAction: UIAlertAction = UIAlertAction(
+            title: "취소",
+            style: .cancel,
+            handler: nil
+        )
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     fileprivate func updateSubviews(for isEditing: Bool) {
         textView.isEditable = true
-        _ = isEditing
-        ? textView.becomeFirstResponder()
-        : textView.resignFirstResponder()
+        removeButton.isEnabled = hasEntry
         
         button.image = isEditing ? #imageLiteral(resourceName: "baseline_save_white_24pt") : #imageLiteral(resourceName: "baseline_edit_white_24pt")
         button.target = self

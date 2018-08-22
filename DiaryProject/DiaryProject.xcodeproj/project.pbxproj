@@ -16,9 +16,6 @@
 		9D0982B22112E35D000F3946 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982B02112E35D000F3946 /* LaunchScreen.storyboard */; };
 		9D69214921250DB9009684C4 /* UIKit+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */; };
 		9D851702212A9CC8003A1FDA /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D851701212A9CC8003A1FDA /* Environment.swift */; };
-		9D86353D211425B90047043C /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D86353A211425B90047043C /* background.jpg */; };
-		9D86353E211425B90047043C /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D86353B211425B90047043C /* background@2x.jpg */; };
-		9D86353F211425B90047043C /* background@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D86353C211425B90047043C /* background@3x.jpg */; };
 		9D86354621142D060047043C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354521142D060047043C /* Entry.swift */; };
 		9D86354E21142F650047043C /* DiaryProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354D21142F650047043C /* DiaryProjectTests.swift */; };
 		9DA6D07121153A15000D96E0 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D07021153A15000D96E0 /* EntryRepository.swift */; };
@@ -48,9 +45,6 @@
 		9D0982B32112E35D000F3946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+MyDiary.swift"; sourceTree = "<group>"; };
 		9D851701212A9CC8003A1FDA /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		9D86353A211425B90047043C /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = ../../../../../Downloads/background/background.jpg; sourceTree = "<group>"; };
-		9D86353B211425B90047043C /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "background@2x.jpg"; path = "../../../../../Downloads/background/background@2x.jpg"; sourceTree = "<group>"; };
-		9D86353C211425B90047043C /* background@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "background@3x.jpg"; path = "../../../../../Downloads/background/background@3x.jpg"; sourceTree = "<group>"; };
 		9D86354521142D060047043C /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		9D86354B21142F650047043C /* DiaryProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiaryProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D86354D21142F650047043C /* DiaryProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryProjectTests.swift; sourceTree = "<group>"; };
@@ -138,9 +132,6 @@
 		9D863539211425670047043C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9D86353A211425B90047043C /* background.jpg */,
-				9D86353B211425B90047043C /* background@2x.jpg */,
-				9D86353C211425B90047043C /* background@3x.jpg */,
 				9D0982AE2112E35D000F3946 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -289,10 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D0982B22112E35D000F3946 /* LaunchScreen.storyboard in Resources */,
-				9D86353F211425B90047043C /* background@3x.jpg in Resources */,
-				9D86353D211425B90047043C /* background.jpg in Resources */,
 				9D0982AF2112E35D000F3946 /* Assets.xcassets in Resources */,
-				9D86353E211425B90047043C /* background@2x.jpg in Resources */,
 				9D0982AD2112E35C000F3946 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -102,10 +103,18 @@
                         <viewLayoutGuide key="safeArea" id="pCC-YL-aC7"/>
                     </view>
                     <navigationItem key="navigationItem" id="wSW-aZ-TQ3">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="B2Z-eL-1A6"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="B2Z-eL-1A6"/>
+                            <barButtonItem title="삭제" image="baseline_delete_white_24pt" id="Wjc-vS-LM5">
+                                <connections>
+                                    <action selector="removeEntry:" destination="BYZ-38-t0r" id="9CQ-pD-ZKU"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="button" destination="B2Z-eL-1A6" id="BnK-lp-IyY"/>
+                        <outlet property="removeButton" destination="Wjc-vS-LM5" id="9Gg-8K-4m0"/>
                         <outlet property="textView" destination="teo-r0-V2w" id="3LV-Xd-BkA"/>
                         <outlet property="textViewBottomConstraint" destination="Hyw-sb-Xp9" id="Gt3-lB-gTL"/>
                     </connections>
@@ -133,6 +142,9 @@
             <point key="canvasLocation" x="-262" y="76"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="baseline_delete_white_24pt" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HKE-MZ-IDA"/>
     </inferredMetricsTieBreakers>
