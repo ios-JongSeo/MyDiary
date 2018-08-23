@@ -21,6 +21,8 @@
 		9DA6D07121153A15000D96E0 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D07021153A15000D96E0 /* EntryRepository.swift */; };
 		9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D072211547F5000D96E0 /* Identifiable.swift */; };
 		9DB86A082127AA3F00818C77 /* TimelineViewContloller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */; };
+		9DEE1EAC212D33F200432B47 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEE1EAB212D33F200432B47 /* EntryTableViewCell.swift */; };
+		9DEE1EAE212D39A300432B47 /* Foundation+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEE1EAD212D39A300432B47 /* Foundation+MyDiary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		9DA6D07021153A15000D96E0 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
 		9DA6D072211547F5000D96E0 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewContloller.swift; sourceTree = "<group>"; };
+		9DEE1EAB212D33F200432B47 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
+		9DEE1EAD212D39A300432B47 /* Foundation+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+MyDiary.swift"; sourceTree = "<group>"; };
 		B90935E4D04AF4DD245DC9DD /* Pods-DiaryProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiaryProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiaryProjectTests/Pods-DiaryProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9386D7B5886DFB040BBB159 /* Pods_DiaryProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiaryProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE15647CBB59B9ACA5B85F7 /* Pods_DiaryProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiaryProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,7 @@
 				9D0982A72112E35C000F3946 /* AppDelegate.swift */,
 				9DA6D072211547F5000D96E0 /* Identifiable.swift */,
 				9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */,
+				9DEE1EAD212D39A300432B47 /* Foundation+MyDiary.swift */,
 				9D851701212A9CC8003A1FDA /* Environment.swift */,
 			);
 			path = Shared;
@@ -172,6 +177,7 @@
 			children = (
 				9D0982A92112E35C000F3946 /* EntryViewController.swift */,
 				9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */,
+				9DEE1EAB212D33F200432B47 /* EntryTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -374,12 +380,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DEE1EAE212D39A300432B47 /* Foundation+MyDiary.swift in Sources */,
 				9D69214921250DB9009684C4 /* UIKit+MyDiary.swift in Sources */,
 				9D851702212A9CC8003A1FDA /* Environment.swift in Sources */,
 				9D86354621142D060047043C /* Entry.swift in Sources */,
 				9D0982AA2112E35C000F3946 /* EntryViewController.swift in Sources */,
 				9DB86A082127AA3F00818C77 /* TimelineViewContloller.swift in Sources */,
 				9D0982A82112E35C000F3946 /* AppDelegate.swift in Sources */,
+				9DEE1EAC212D33F200432B47 /* EntryTableViewCell.swift in Sources */,
 				9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */,
 				9DA6D07121153A15000D96E0 /* EntryRepository.swift in Sources */,
 			);

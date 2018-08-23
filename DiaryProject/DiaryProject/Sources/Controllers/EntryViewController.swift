@@ -10,14 +10,6 @@
 import UIKit
 import SnapKit
 
-extension DateFormatter{
-    static var entryDateFormatter: DateFormatter = { () -> DateFormatter in
-        let df = DateFormatter()
-        df.dateFormat = "yyyy. MM. dd. EEE"
-        return df
-    }()
-}
-
 protocol EntryViewControllerDelegate: class {
     func didRemoveEntry(_ entry: Entry)
 }
