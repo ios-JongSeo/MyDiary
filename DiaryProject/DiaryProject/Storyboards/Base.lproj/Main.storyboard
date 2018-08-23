@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,17 +20,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBg-ac-ESW">
-                                <rect key="frame" x="166" y="323.5" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQm-2n-3ip">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryTableViewCell" rowHeight="80" id="2ys-Vx-XD3" customClass="EntryTableViewCell" customModule="DiaryProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ys-Vx-XD3" id="Nbm-f5-vYY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B1X-XB-s01">
+                                                    <rect key="frame" x="15" y="16" width="345" height="46.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="일기 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guh-em-PVx">
+                                                            <rect key="frame" x="0.0" y="13.5" width="265" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XSA-tl-V5o">
+                                                            <rect key="frame" x="265" y="0.0" width="80" height="46.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQT-aR-SkH">
+                                                                    <rect key="frame" x="31.5" y="0.0" width="17.5" height="13.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="10:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQk-wi-Qrg">
+                                                                    <rect key="frame" x="9" y="17.5" width="62" height="29"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="PDl-po-fLr"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="B1X-XB-s01" firstAttribute="centerY" secondItem="Nbm-f5-vYY" secondAttribute="centerY" id="174-8c-Fst"/>
+                                                <constraint firstItem="B1X-XB-s01" firstAttribute="leading" secondItem="Nbm-f5-vYY" secondAttribute="leadingMargin" id="Qmb-X4-5Me"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="B1X-XB-s01" secondAttribute="trailing" id="fuQ-yo-5qe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ampmlabel" destination="EQT-aR-SkH" id="nXx-UG-acn"/>
+                                            <outlet property="entryTextLabel" destination="guh-em-PVx" id="h8m-WE-Uh0"/>
+                                            <outlet property="timeLabel" destination="PQk-wi-Qrg" id="Jnj-Q4-T3T"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showEntry" id="HKE-MZ-IDA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OBg-ac-ESW" firstAttribute="centerY" secondItem="Jrk-1y-ia3" secondAttribute="centerY" id="nvk-8c-cYc"/>
-                            <constraint firstItem="OBg-ac-ESW" firstAttribute="centerX" secondItem="Jrk-1y-ia3" secondAttribute="centerX" id="t2I-gh-p6Y"/>
+                            <constraint firstItem="QQm-2n-3ip" firstAttribute="leading" secondItem="5ZS-3E-h3r" secondAttribute="leading" id="QAj-NM-YAt"/>
+                            <constraint firstItem="QQm-2n-3ip" firstAttribute="trailing" secondItem="5ZS-3E-h3r" secondAttribute="trailing" id="QsH-3k-Mlb"/>
+                            <constraint firstItem="QQm-2n-3ip" firstAttribute="top" secondItem="Jrk-1y-ia3" secondAttribute="top" id="dQU-RB-cor"/>
+                            <constraint firstItem="QQm-2n-3ip" firstAttribute="bottom" secondItem="5ZS-3E-h3r" secondAttribute="bottom" id="jRG-v7-TVh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5ZS-3E-h3r"/>
                     </view>
@@ -40,7 +96,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="entryCountLabel" destination="OBg-ac-ESW" id="4Sf-dF-Wh0"/>
+                        <outlet property="tableview" destination="QQm-2n-3ip" id="hVN-gF-xV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQ4-Jb-hAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -73,10 +129,18 @@
                         <viewLayoutGuide key="safeArea" id="pCC-YL-aC7"/>
                     </view>
                     <navigationItem key="navigationItem" id="wSW-aZ-TQ3">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="B2Z-eL-1A6"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="B2Z-eL-1A6"/>
+                            <barButtonItem title="삭제" image="baseline_delete_white_24pt" id="Wjc-vS-LM5">
+                                <connections>
+                                    <action selector="removeEntry:" destination="BYZ-38-t0r" id="9CQ-pD-ZKU"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="button" destination="B2Z-eL-1A6" id="BnK-lp-IyY"/>
+                        <outlet property="removeButton" destination="Wjc-vS-LM5" id="9Gg-8K-4m0"/>
                         <outlet property="textView" destination="teo-r0-V2w" id="3LV-Xd-BkA"/>
                         <outlet property="textViewBottomConstraint" destination="Hyw-sb-Xp9" id="Gt3-lB-gTL"/>
                     </connections>
@@ -104,4 +168,10 @@
             <point key="canvasLocation" x="-262" y="76"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="baseline_delete_white_24pt" width="24" height="24"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="HKE-MZ-IDA"/>
+    </inferredMetricsTieBreakers>
 </document>
