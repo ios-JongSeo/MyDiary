@@ -19,6 +19,7 @@
 		9D86354621142D060047043C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354521142D060047043C /* Entry.swift */; };
 		9D86354E21142F650047043C /* DiaryProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354D21142F650047043C /* DiaryProjectTests.swift */; };
 		9D9153BF2133A6100079B7AC /* EntryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9153BE2133A6100079B7AC /* EntryViewViewModel.swift */; };
+		9D9153C12133BE990079B7AC /* EntryViewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9153C02133BE990079B7AC /* EntryViewViewModelTests.swift */; };
 		9DA6D07121153A15000D96E0 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D07021153A15000D96E0 /* EntryRepository.swift */; };
 		9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D072211547F5000D96E0 /* Identifiable.swift */; };
 		9DB86A082127AA3F00818C77 /* TimelineViewContloller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */; };
@@ -53,6 +54,7 @@
 		9D86354D21142F650047043C /* DiaryProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryProjectTests.swift; sourceTree = "<group>"; };
 		9D86354F21142F650047043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D9153BE2133A6100079B7AC /* EntryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewViewModel.swift; sourceTree = "<group>"; };
+		9D9153C02133BE990079B7AC /* EntryViewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewViewModelTests.swift; sourceTree = "<group>"; };
 		9DA6D07021153A15000D96E0 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
 		9DA6D072211547F5000D96E0 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewContloller.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				9D86354D21142F650047043C /* DiaryProjectTests.swift */,
+				9D9153C02133BE990079B7AC /* EntryViewViewModelTests.swift */,
 				9D86354F21142F650047043C /* Info.plist */,
 			);
 			path = DiaryProjectTests;
@@ -401,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9153C12133BE990079B7AC /* EntryViewViewModelTests.swift in Sources */,
 				9D86354E21142F650047043C /* DiaryProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

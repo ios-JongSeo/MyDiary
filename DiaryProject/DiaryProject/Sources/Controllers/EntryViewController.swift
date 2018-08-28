@@ -21,25 +21,15 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var removeButton: UIBarButtonItem!
     
     var viewModel: EntryViewViewModel!
-    
-    var environment: Environment!
     weak var delegate: EntryViewControllerDelegate?
-    
-    var journal: EntryRepository { return environment.entryRepository }
-    var editingEntry: Entry?
-    var hasEntry: Bool {
-        return editingEntry != nil
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let date: Date = editingEntry?.createdAt ?? Date()
+        title = viewModel.title
+        textView.text = viewModel.textViewText
         
-        textView.text = editingEntry?.text
-        title = DateFormatter.entryDateFormatter.string(from: date)
-        
-        updateSubviews(for: hasEntry == false)
+        updateSubviews(for: viewModel.hasEntry == false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -75,32 +65,25 @@ class EntryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if hasEntry == false {
+        if viewModel.hasEntry == false {
             textView.becomeFirstResponder()
         }
     }
     
     @objc func saveEntry(_ sender: Any) {
-        if let editing = editingEntry{
-            editing.text = textView.text
-            journal.update(editing)
-        }else{
-            let entry: Entry = Entry(text: textView.text)
-            journal.add(entry)
-            editingEntry = entry
-        }
-        
+        viewModel.completeEditing(with: textView.text)
         updateSubviews(for: false)
         textView.resignFirstResponder()
     }
     
     @objc func editEntry(_ sender: Any){
+        viewModel.startEditing()
         updateSubviews(for: true)
         textView.becomeFirstResponder()
     }
    
     @IBAction func removeEntry(_ sender: Any) {
-        guard let entryToRemove = editingEntry else { return }
+        guard viewModel.hasEntry else { return }
         
         let alertController = UIAlertController(
             title: "일기를 삭제 하시겠습니까??",
@@ -111,11 +94,11 @@ class EntryViewController: UIViewController {
         let removeAction: UIAlertAction = UIAlertAction(
             title: "삭제",
             style: .destructive) { (_) in
-                self.environment.entryRepository.remove(entryToRemove)
-                self.editingEntry = nil
-        
+                guard
+                let removedEntry = self.viewModel.removeEntry()
+                    else { return }
                 // pop
-                self.delegate?.didRemoveEntry(entryToRemove)
+                self.delegate?.didRemoveEntry(removedEntry)
         }
         alertController.addAction(removeAction)
         
@@ -130,30 +113,14 @@ class EntryViewController: UIViewController {
     }
     
     fileprivate func updateSubviews(for isEditing: Bool) {
-        textView.isEditable = true
-        removeButton.isEnabled = hasEntry
+        textView.isEditable = viewModel.textViewEditiable
+        removeButton.isEnabled = viewModel.removeButtonEnabled
         
-        button.image = isEditing ? #imageLiteral(resourceName: "baseline_save_white_24pt") : #imageLiteral(resourceName: "baseline_edit_white_24pt")
+        button.image = viewModel.buttonImage
         button.target = self
-        button.action = isEditing
+        button.action = viewModel.isEditing
         ? #selector(saveEntry(_:))
         : #selector(editEntry(_:))
-        
-//        if isEditing{
-//            textView.isEditable = true
-//            textView.becomeFirstResponder()
-//
-//            button.image = #imageLiteral(resourceName: "baseline_save_white_24pt")
-//            button.target = self
-//            button.action = #selector(saveEntry(_:))
-//        }else{
-//            textView.isEditable = false // 저장 후 수정불가
-//            textView.resignFirstResponder() // 키보드 숨기기
-//
-//            button.image = #imageLiteral(resourceName: "baseline_edit_white_24pt")
-//            button.target = self
-//            button.action = #selector(editEntry(_:))
-//        }
     }
 
 }
