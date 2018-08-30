@@ -17,14 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         customizeNavigationBar()
-        
+        injectEnvironment()
+        return true
+    }
+    
+    private func injectEnvironment() {
         if
             let navigationController = window?.rootViewController as?
             UINavigationController,
             let timelineViewController = navigationController.topViewController as?
-                TimelineViewController {
-//            timelineViewController.environment = Environment()
-           
+            TimelineViewController {
+            //            timelineViewController.environment = Environment()
+            
             let entries: [Entry] = [ // 어제
                 Entry(createdAt: Date.before(1), text: "어제 일기"), Entry(createdAt: Date.before(1), text: "어제 일기"), Entry(createdAt: Date.before(1), text: "어제 일기"),
                 // 2일 전
@@ -34,13 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ]
             
             let repository = InMemoryEntryRepository(entries: entries)
+            let env = Environment(entryRepository: repository)
             
-            timelineViewController.environment = Environment(
-                entryRepository: repository
+            timelineViewController.viewModel = TimelineViewViewModel(environment: env
             )
         }
-        
-        return true
     }
     
     private func customizeNavigationBar() {

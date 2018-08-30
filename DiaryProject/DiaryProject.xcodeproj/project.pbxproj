@@ -14,10 +14,13 @@
 		9D0982AD2112E35C000F3946 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982AB2112E35C000F3946 /* Main.storyboard */; };
 		9D0982AF2112E35D000F3946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982AE2112E35D000F3946 /* Assets.xcassets */; };
 		9D0982B22112E35D000F3946 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982B02112E35D000F3946 /* LaunchScreen.storyboard */; };
+		9D62346421364448001E0FCE /* TimelineViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62346321364448001E0FCE /* TimelineViewViewModel.swift */; };
 		9D69214921250DB9009684C4 /* UIKit+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */; };
 		9D851702212A9CC8003A1FDA /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D851701212A9CC8003A1FDA /* Environment.swift */; };
 		9D86354621142D060047043C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354521142D060047043C /* Entry.swift */; };
 		9D86354E21142F650047043C /* DiaryProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354D21142F650047043C /* DiaryProjectTests.swift */; };
+		9D9153BF2133A6100079B7AC /* EntryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9153BE2133A6100079B7AC /* EntryViewViewModel.swift */; };
+		9D9153C12133BE990079B7AC /* EntryViewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9153C02133BE990079B7AC /* EntryViewViewModelTests.swift */; };
 		9DA6D07121153A15000D96E0 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D07021153A15000D96E0 /* EntryRepository.swift */; };
 		9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D072211547F5000D96E0 /* Identifiable.swift */; };
 		9DB86A082127AA3F00818C77 /* TimelineViewContloller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */; };
@@ -45,12 +48,15 @@
 		9D0982AE2112E35D000F3946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D0982B12112E35D000F3946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D0982B32112E35D000F3946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D62346321364448001E0FCE /* TimelineViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewViewModel.swift; sourceTree = "<group>"; };
 		9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+MyDiary.swift"; sourceTree = "<group>"; };
 		9D851701212A9CC8003A1FDA /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		9D86354521142D060047043C /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		9D86354B21142F650047043C /* DiaryProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiaryProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D86354D21142F650047043C /* DiaryProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryProjectTests.swift; sourceTree = "<group>"; };
 		9D86354F21142F650047043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D9153BE2133A6100079B7AC /* EntryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewViewModel.swift; sourceTree = "<group>"; };
+		9D9153C02133BE990079B7AC /* EntryViewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewViewModelTests.swift; sourceTree = "<group>"; };
 		9DA6D07021153A15000D96E0 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
 		9DA6D072211547F5000D96E0 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewContloller.swift; sourceTree = "<group>"; };
@@ -176,7 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				9D0982A92112E35C000F3946 /* EntryViewController.swift */,
+				9D9153BE2133A6100079B7AC /* EntryViewViewModel.swift */,
 				9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */,
+				9D62346321364448001E0FCE /* TimelineViewViewModel.swift */,
 				9DEE1EAB212D33F200432B47 /* EntryTableViewCell.swift */,
 			);
 			path = Controllers;
@@ -195,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				9D86354D21142F650047043C /* DiaryProjectTests.swift */,
+				9D9153C02133BE990079B7AC /* EntryViewViewModelTests.swift */,
 				9D86354F21142F650047043C /* Info.plist */,
 			);
 			path = DiaryProjectTests;
@@ -384,9 +393,11 @@
 				9D69214921250DB9009684C4 /* UIKit+MyDiary.swift in Sources */,
 				9D851702212A9CC8003A1FDA /* Environment.swift in Sources */,
 				9D86354621142D060047043C /* Entry.swift in Sources */,
+				9D9153BF2133A6100079B7AC /* EntryViewViewModel.swift in Sources */,
 				9D0982AA2112E35C000F3946 /* EntryViewController.swift in Sources */,
 				9DB86A082127AA3F00818C77 /* TimelineViewContloller.swift in Sources */,
 				9D0982A82112E35C000F3946 /* AppDelegate.swift in Sources */,
+				9D62346421364448001E0FCE /* TimelineViewViewModel.swift in Sources */,
 				9DEE1EAC212D33F200432B47 /* EntryTableViewCell.swift in Sources */,
 				9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */,
 				9DA6D07121153A15000D96E0 /* EntryRepository.swift in Sources */,
@@ -397,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9153C12133BE990079B7AC /* EntryViewViewModelTests.swift in Sources */,
 				9D86354E21142F650047043C /* DiaryProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
