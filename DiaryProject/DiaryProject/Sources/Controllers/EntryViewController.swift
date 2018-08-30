@@ -8,7 +8,6 @@
 // branch add-navigation-controller
 
 import UIKit
-import SnapKit
 
 class EntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
@@ -24,28 +23,39 @@ class EntryViewController: UIViewController {
         title = viewModel.title
         textView.text = viewModel.textViewText
         
-        updateSubviews(for: viewModel.hasEntry == false)
+        if viewModel.hasEntry == false {
+            viewModel.startEditing()
+        }
+        updateSubviews()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handlekeyboardAppearance(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(handleKeyboardAppearance(_:)),
+                         name: NSNotification.Name.UIKeyboardWillShow,
+                         object: nil)
+        
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(handleKeyboardAppearance(_:)),
+                         name: NSNotification.Name.UIKeyboardWillHide,
+                         object: nil)
     }
     
-    @objc func handlekeyboardAppearance(_ note: Notification){
+    @objc func handleKeyboardAppearance(_ note: Notification) {
         guard
             let userInfo = note.userInfo,
             let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue),
             let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval),
             let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt)
-            else{ return }
-        
-        //print("키보드 높이 : \(keyboardFrame.cgRectValue.height)")
+            else { return }
         
         let isKeyboardWillShow: Bool = note.name == Notification.Name.UIKeyboardWillShow
-        let keyboardHeight = isKeyboardWillShow ?
-            keyboardFrame.cgRectValue.height
+        let keyboardHeight = isKeyboardWillShow
+            ? keyboardFrame.cgRectValue.height
             : 0
+        
         let animationOption = UIViewAnimationOptions.init(rawValue: curve)
-
+        
         UIView.animate(
             withDuration: duration,
             delay: 0.0,
@@ -53,36 +63,34 @@ class EntryViewController: UIViewController {
             animations: {
                 self.textViewBottomConstraint.constant = -keyboardHeight
                 self.view.layoutIfNeeded()
-            },
+        },
             completion: nil
         )
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if viewModel.hasEntry == false {
-            textView.becomeFirstResponder()
-        }
+        if viewModel.isEditing { textView.becomeFirstResponder() }
     }
     
     @objc func saveEntry(_ sender: Any) {
         viewModel.completeEditing(with: textView.text)
-        updateSubviews(for: false)
+        updateSubviews()
         textView.resignFirstResponder()
     }
     
-    @objc func editEntry(_ sender: Any){
+    @objc func editEntry(_ sender: Any) {
         viewModel.startEditing()
-        updateSubviews(for: true)
+        updateSubviews()
         textView.becomeFirstResponder()
     }
-   
+    
     @IBAction func removeEntry(_ sender: Any) {
         guard viewModel.hasEntry else { return }
         
         let alertController = UIAlertController(
             title: "일기를 삭제 하시겠습니까??",
-            message: "이 동작은 되돌릴 수 없습니다.",
+            message: "이 동작은 되돌릴 수 없습니다",
             preferredStyle: .actionSheet
         )
         
@@ -90,7 +98,7 @@ class EntryViewController: UIViewController {
             title: "삭제",
             style: .destructive) { (_) in
                 guard
-                let _ = self.viewModel.removeEntry()
+                    let _ = self.viewModel.removeEntry()
                     else { return }
                 // pop
                 self.navigationController?.popViewController(animated: true)
@@ -107,16 +115,14 @@ class EntryViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    fileprivate func updateSubviews(for isEditing: Bool) {
+    fileprivate func updateSubviews() {
         textView.isEditable = viewModel.textViewEditiable
         removeButton.isEnabled = viewModel.removeButtonEnabled
-        
         button.image = viewModel.buttonImage
         button.target = self
         button.action = viewModel.isEditing
-        ? #selector(saveEntry(_:))
-        : #selector(editEntry(_:))
+            ? #selector(saveEntry(_:))
+            : #selector(editEntry(_:))
     }
-
 }
 
