@@ -14,6 +14,10 @@
 		9D0982AD2112E35C000F3946 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982AB2112E35C000F3946 /* Main.storyboard */; };
 		9D0982AF2112E35D000F3946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982AE2112E35D000F3946 /* Assets.xcassets */; };
 		9D0982B22112E35D000F3946 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0982B02112E35D000F3946 /* LaunchScreen.storyboard */; };
+		9D3C33D82137D34E0088464E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3C33D72137D34E0088464E /* SettingsTableViewController.swift */; };
+		9D3C33DA2137DB4D0088464E /* SettingsTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3C33D92137DB4D0088464E /* SettingsTableViewViewModel.swift */; };
+		9D48CC2D2138E44C0090A337 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D48CC2C2138E44C0090A337 /* Settings.swift */; };
+		9D48CC2F213925260090A337 /* UserDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D48CC2E213925260090A337 /* UserDefaultSettings.swift */; };
 		9D62346421364448001E0FCE /* TimelineViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62346321364448001E0FCE /* TimelineViewViewModel.swift */; };
 		9D69214921250DB9009684C4 /* UIKit+MyDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */; };
 		9D851702212A9CC8003A1FDA /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D851701212A9CC8003A1FDA /* Environment.swift */; };
@@ -48,6 +52,10 @@
 		9D0982AE2112E35D000F3946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D0982B12112E35D000F3946 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D0982B32112E35D000F3946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D3C33D72137D34E0088464E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		9D3C33D92137DB4D0088464E /* SettingsTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewViewModel.swift; sourceTree = "<group>"; };
+		9D48CC2C2138E44C0090A337 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9D48CC2E213925260090A337 /* UserDefaultSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultSettings.swift; sourceTree = "<group>"; };
 		9D62346321364448001E0FCE /* TimelineViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewViewModel.swift; sourceTree = "<group>"; };
 		9D69214821250DB9009684C4 /* UIKit+MyDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+MyDiary.swift"; sourceTree = "<group>"; };
 		9D851701212A9CC8003A1FDA /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -186,6 +194,8 @@
 				9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */,
 				9D62346321364448001E0FCE /* TimelineViewViewModel.swift */,
 				9DEE1EAB212D33F200432B47 /* EntryTableViewCell.swift */,
+				9D3C33D72137D34E0088464E /* SettingsTableViewController.swift */,
+				9D3C33D92137DB4D0088464E /* SettingsTableViewViewModel.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +205,8 @@
 			children = (
 				9D86354521142D060047043C /* Entry.swift */,
 				9DA6D07021153A15000D96E0 /* EntryRepository.swift */,
+				9D48CC2C2138E44C0090A337 /* Settings.swift */,
+				9D48CC2E213925260090A337 /* UserDefaultSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -390,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DEE1EAE212D39A300432B47 /* Foundation+MyDiary.swift in Sources */,
+				9D3C33D82137D34E0088464E /* SettingsTableViewController.swift in Sources */,
 				9D69214921250DB9009684C4 /* UIKit+MyDiary.swift in Sources */,
 				9D851702212A9CC8003A1FDA /* Environment.swift in Sources */,
 				9D86354621142D060047043C /* Entry.swift in Sources */,
@@ -397,7 +410,10 @@
 				9D0982AA2112E35C000F3946 /* EntryViewController.swift in Sources */,
 				9DB86A082127AA3F00818C77 /* TimelineViewContloller.swift in Sources */,
 				9D0982A82112E35C000F3946 /* AppDelegate.swift in Sources */,
+				9D48CC2F213925260090A337 /* UserDefaultSettings.swift in Sources */,
+				9D48CC2D2138E44C0090A337 /* Settings.swift in Sources */,
 				9D62346421364448001E0FCE /* TimelineViewViewModel.swift in Sources */,
+				9D3C33DA2137DB4D0088464E /* SettingsTableViewViewModel.swift in Sources */,
 				9DEE1EAC212D33F200432B47 /* EntryTableViewCell.swift in Sources */,
 				9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */,
 				9DA6D07121153A15000D96E0 /* EntryRepository.swift in Sources */,
