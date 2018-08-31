@@ -22,6 +22,7 @@ class EntryViewController: UIViewController {
         
         title = viewModel.title
         textView.text = viewModel.textViewText
+        textView.font = viewModel.textViewFont
         
         if viewModel.hasEntry == false {
             viewModel.startEditing()
