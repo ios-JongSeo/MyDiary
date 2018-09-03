@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,21 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationController,
             let timelineViewController = navigationController.topViewController as?
             TimelineViewController {
-            //            timelineViewController.environment = Environment()
+
+            let realm = try! Realm()
+            let repository = RealmEntryRepository(realm: realm)
             
-            let entries: [Entry] = [ // 어제
-                Entry(createdAt: Date.before(1), text: "어제 일기"), Entry(createdAt: Date.before(1), text: "어제 일기"), Entry(createdAt: Date.before(1), text: "어제 일기"),
-                // 2일 전
-                Entry(createdAt: Date.before(2), text: "2일 전 일기"), Entry(createdAt: Date.before(2), text: "2일 전 일기"), Entry(createdAt: Date.before(2), text: "2일 전 일기"), Entry(createdAt: Date.before(2), text: "2일 전 일기"), Entry(createdAt: Date.before(2), text: "2일 전 일기"), Entry(createdAt: Date.before(2), text: "2일 전 일기"),
-                // 3일 전
-                Entry(createdAt: Date.before(3), text: "3일 전 일기"), Entry(createdAt: Date.before(3), text: "3일 전 일기")
-            ]
-            
-            let repository = InMemoryEntryRepository(entries: entries)
             let env = Environment(
                 entryRepository: repository,
+                entryFactory: RealmEntry.entry,
                 settings: UserDefaults.standard
             )
+            
+            print(Realm.Configuration.defaultConfiguration.fileURL!) // realm 파일의 경로 찾기
             
             timelineViewController.viewModel = TimelineViewViewModel(environment: env
             )
