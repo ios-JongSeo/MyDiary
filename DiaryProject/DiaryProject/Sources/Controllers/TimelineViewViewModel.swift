@@ -15,12 +15,31 @@ class TimelineViewViewModel {
     private var entries: [EntryType] {
         return environment.entryRepository.recentEntries(max: environment.entryRepository.numberOfEntries)
     }
-
+    
+    private var filtedEntries: [EntryType] = []
+    
+    var searchText: String? {
+        didSet {
+            guard let text = searchText else {
+                filtedEntries = []
+                return
+            }
+            filtedEntries = environment.entryRepository.entries(contains: text)
+        }
+    }
+    
+    var isSearching: Bool {
+        return searchText?.isEmpty == false
+    }
+    
     private func entries(for date: Date) -> [EntryType] {
         return entries.filter { $0.createdAt.hmsRemoved == date }
     }
 
     private func entry(for indexPath: IndexPath) -> EntryType {
+        guard isSearching == false
+            else { return filtedEntries[indexPath.row] }
+        
         let date = dates[indexPath.section]
         let entriesOfDate = entries(for: date)
         let entry = entriesOfDate[indexPath.row]
@@ -67,14 +86,20 @@ class TimelineViewViewModel {
 }
 
 extension TimelineViewViewModel {
-    var numberOfSctions: Int { return dates.count }
+    var numberOfSctions: Int {
+        return isSearching ? 1 : dates.count
+    }
     
-    func title(for section: Int) -> String {
+    func title(for section: Int) -> String? {
+        guard isSearching == false else { return nil }
+        
         let date = dates[section]
         return DateFormatter.formatter(with: environment.settings.dateFormatOption.rawValue).string(from: date)
     }
     
     func nuberOfRows(in section: Int) -> Int {
+        guard isSearching == false else { return filtedEntries.count }
+        
         let date = dates[section]
         return entries(for: date).count
     }

@@ -11,25 +11,9 @@ import UIKit
 class TimelineViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     
-    var viewModel: TimelineViewViewModel!
+    private let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
-//    var environment: Environment!
-//
-//    private var dates: [Date] = []
-//    private var entries: [Entry] {
-//        return environment.entryRepository.recentEntries(max: environment.entryRepository.numberOfEntries)
-//    }
-//
-//    private func entries(for date: Date) -> [Entry] {
-//        return entries.filter { $0.createdAt.hmsRemoved == date }
-//    }
-//
-//    private func entry(for indexPath: IndexPath) -> Entry {
-//        let date = dates[indexPath.section]
-//        let entriesOfDate = entries(for: date)
-//        let entry = entriesOfDate[indexPath.row]
-//        return entry
-//    }
+    var viewModel: TimelineViewViewModel!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
@@ -63,11 +47,30 @@ class TimelineViewController: UIViewController {
         title = "MyDiary"
         tableview.dataSource = self
         tableview.delegate = self
+        
+        searchController.searchBar.placeholder = "검색어를 입력하세요"
+        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.autocapitalizationType = .none
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        
+        navigationItem.searchController = searchController
+        
+        definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableview.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if searchController.isActive {
+            viewModel.searchText = nil
+            searchController.isActive = false
+        }
     }
 }
 
@@ -94,6 +97,8 @@ extension TimelineViewController: UITableViewDataSource {
 
 extension TimelineViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard searchController.isActive == false else { return UISwipeActionsConfiguration(actions: []) } // 검색한 경우 삭제기능 안보이게
+        
         let deleteAction = UIContextualAction(style: .normal, title:  nil) { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             
             let isLastRowInSection = self.viewModel.nuberOfRows(in: indexPath.section) == 1
@@ -125,5 +130,14 @@ extension TimelineViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions:
             [deleteAction]
         )
+    }
+}
+
+extension TimelineViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        
+        viewModel.searchText = searchText
+        tableview.reloadData()
     }
 }
