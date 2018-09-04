@@ -1,20 +1,30 @@
 PODS:
   - Nimble (7.0.3)
+  - Realm (3.7.6):
+    - Realm/Headers (= 3.7.6)
+  - Realm/Headers (3.7.6)
+  - RealmSwift (3.7.6):
+    - Realm (= 3.7.6)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
   - Nimble (~> 7.0.0)
+  - RealmSwift
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Nimble
+    - Realm
+    - RealmSwift
     - SnapKit
 
 SPEC CHECKSUMS:
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Realm: 9eaecad54712d6246d08ba34c10f354e4715d7d3
+  RealmSwift: 1fe08b4ebaeeaacf17f9ba0343f7b25c9fc31fa6
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: ad7d547afb567f14b2cbe8defadaf7a32e063059
+PODFILE CHECKSUM: 5bf5de734eb8a3f56b342a33570ad778f75d1104
 
 COCOAPODS: 1.5.3

@@ -4,6 +4,7 @@ inhibit_all_warnings!
 
 target "DiaryProject" do
 	pod 'SnapKit'
+	pod 'RealmSwift'
 
   target :DiaryProjectTests do
     inherit! :search_paths
