@@ -27,6 +27,8 @@
 		9D86354E21142F650047043C /* DiaryProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86354D21142F650047043C /* DiaryProjectTests.swift */; };
 		9D9153BF2133A6100079B7AC /* EntryViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9153BE2133A6100079B7AC /* EntryViewViewModel.swift */; };
 		9D9153C12133BE990079B7AC /* EntryViewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9153C02133BE990079B7AC /* EntryViewViewModelTests.swift */; };
+		9D991DCD213E660D00B18C75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D991DCC213E660D00B18C75 /* GoogleService-Info.plist */; };
+		9D991DCF213E6D5600B18C75 /* FirebaseEntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D991DCE213E6D5600B18C75 /* FirebaseEntryRepository.swift */; };
 		9DA6D07121153A15000D96E0 /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D07021153A15000D96E0 /* EntryRepository.swift */; };
 		9DA6D073211547F5000D96E0 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA6D072211547F5000D96E0 /* Identifiable.swift */; };
 		9DB86A082127AA3F00818C77 /* TimelineViewContloller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */; };
@@ -69,6 +71,8 @@
 		9D86354F21142F650047043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D9153BE2133A6100079B7AC /* EntryViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewViewModel.swift; sourceTree = "<group>"; };
 		9D9153C02133BE990079B7AC /* EntryViewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewViewModelTests.swift; sourceTree = "<group>"; };
+		9D991DCC213E660D00B18C75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9D991DCE213E6D5600B18C75 /* FirebaseEntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseEntryRepository.swift; sourceTree = "<group>"; };
 		9DA6D07021153A15000D96E0 /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
 		9DA6D072211547F5000D96E0 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		9DB86A072127AA3F00818C77 /* TimelineViewContloller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewContloller.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				9D0982AE2112E35D000F3946 /* Assets.xcassets */,
+				9D991DCC213E660D00B18C75 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				9D514A5F213CFB16001E19EF /* RealmEntry.swift */,
 				9DA6D07021153A15000D96E0 /* EntryRepository.swift */,
 				9D514A5D213CE02A001E19EF /* RealmEntryRepository.swift */,
+				9D991DCE213E6D5600B18C75 /* FirebaseEntryRepository.swift */,
 				9D48CC2C2138E44C0090A337 /* Settings.swift */,
 				9D48CC2E213925260090A337 /* UserDefaultSettings.swift */,
 			);
@@ -313,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D0982B22112E35D000F3946 /* LaunchScreen.storyboard in Resources */,
+				9D991DCD213E660D00B18C75 /* GoogleService-Info.plist in Resources */,
 				9D0982AF2112E35D000F3946 /* Assets.xcassets in Resources */,
 				9D0982AD2112E35C000F3946 /* Main.storyboard in Resources */,
 			);
@@ -335,15 +342,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DiaryProject/Pods-DiaryProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -415,6 +428,7 @@
 				9D3C33D82137D34E0088464E /* SettingsTableViewController.swift in Sources */,
 				9D69214921250DB9009684C4 /* UIKit+MyDiary.swift in Sources */,
 				9D851702212A9CC8003A1FDA /* Environment.swift in Sources */,
+				9D991DCF213E6D5600B18C75 /* FirebaseEntryRepository.swift in Sources */,
 				9D86354621142D060047043C /* Entry.swift in Sources */,
 				9D9153BF2133A6100079B7AC /* EntryViewViewModel.swift in Sources */,
 				9D514A60213CFB16001E19EF /* RealmEntry.swift in Sources */,
