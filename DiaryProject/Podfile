@@ -5,6 +5,8 @@ inhibit_all_warnings!
 target "DiaryProject" do
 	pod 'SnapKit'
 	pod 'RealmSwift'
+	pod 'Firebase/Core'
+	pod 'Firebase/Database'
 
   target :DiaryProjectTests do
     inherit! :search_paths
