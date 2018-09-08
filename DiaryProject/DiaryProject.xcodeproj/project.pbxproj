@@ -147,7 +147,6 @@
 		9D0982A62112E35C000F3946 /* DiaryProject */ = {
 			isa = PBXGroup;
 			children = (
-				9D0982B32112E35D000F3946 /* Info.plist */,
 				9D863541211426150047043C /* Sources */,
 				9D863540211425C90047043C /* Storyboards */,
 				9D863539211425670047043C /* Resources */,
@@ -159,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				9D0982AE2112E35D000F3946 /* Assets.xcassets */,
+				9D0982B32112E35D000F3946 /* Info.plist */,
 				9D991DCC213E660D00B18C75 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
@@ -605,7 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DiaryProject/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DiaryProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -623,7 +623,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DiaryProject/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DiaryProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
